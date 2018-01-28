@@ -40,114 +40,123 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      graphbutton = (ImageButton) findViewById(R.id.graph_button);
+        graphbutton = (ImageButton) findViewById(R.id.graph_button);
 
 
         /* calc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) { */
-                final EditText[] et1 = new EditText[] {
-                        (EditText) findViewById(R.id.acc),
-                        (EditText) findViewById(R.id.distance),
-                        (EditText) findViewById(R.id.velocity),
-                        (EditText) findViewById(R.id.velocityinitial),
-                        (EditText) findViewById(R.id.time), //calling edit text by calling unique id
-                        (EditText) findViewById(R.id.distanceinitial),
-                };
+        final EditText[] et1 = new EditText[]{
+                (EditText) findViewById(R.id.acc),
+                (EditText) findViewById(R.id.distance),
+                (EditText) findViewById(R.id.velocity),
+                (EditText) findViewById(R.id.velocityinitial),
+                (EditText) findViewById(R.id.time), //calling edit text by calling unique id
+                (EditText) findViewById(R.id.distanceinitial),
+        };
 
-                final int[] grades = new int[]  {0, 0, 0, 0, 0, 0, 0, 0,0 , 0}; //initializing to set as 0
+        final int[] grades = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //initializing to set as 0
 
-                calc = (Button) findViewById(R.id.calc);
+        calc = (Button) findViewById(R.id.calc);
 
-                    calc.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            TextView unknown = (TextView) findViewById(R.id.unknown);
+        calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView unknown = (TextView) findViewById(R.id.unknown);
 
 
-                            for(int i=0; i<6; i++) {
-                                if (et1[i].getText().toString().isEmpty()) {
-                                    grades[i] = 0;
+                for (int i = 0; i < 6; i++) {
+                    if (et1[i].getText().toString().isEmpty()) {
+                        grades[i] = 0;
 
-                                } // for loop go over all the text to check if it is empty, if it is empty it is 0
-                                else {
-                                    grades[i] = Integer.parseInt(et1[i].getText().toString()); // or else it is the grade
+                    } // for loop go over all the text to check if it is empty, if it is empty it is 0
+                    else {
+                        grades[i] = Integer.parseInt(et1[i].getText().toString()); // or else it is the grade
 
-                                }
-                            };
+                    }
+                }
+                ;
 
-                            if ((grades[3] != 0) && (grades[4] != 0) && (grades[0] != 0)){
+                if ((grades[3] != 0) && (grades[4] != 0) && (grades[0] != 0)) {
 
-                                double a = Calculation.DisplacementA(grades[3], grades[4], grades[0]);
-                                double b = Calculation.FinalVelocityT(grades[3], grades[4], grades[0]);
-                                unknown.setText(String.format("%.2f", a) +" m," + String.format("%.2f", b) + " m/s");
+                    double a = Calculation.DisplacementA(grades[3], grades[4], grades[0]);
+                    double b = Calculation.FinalVelocityT(grades[3], grades[4], grades[0]);
+                    unknown.setText(String.format("%.2f", a) + " m," + String.format("%.2f", b) + " m/s");
 
-                            }
-                            else if ((grades[3] != 0) && (grades[0] != 0) && (grades[1] != 0)){
+                } else if ((grades[3] != 0) && (grades[0] != 0) && (grades[1] != 0)) {
 
-                                double a = Calculation.FinalVelocityD(grades[3], grades[0], grades[1]);
-                                unknown.setText(String.format("%.2f", a)+ "m/s");
+                    double a = Calculation.FinalVelocityD(grades[3], grades[0], grades[1]);
+                    unknown.setText(String.format("%.2f", a) + "m/s");
 
-                            }
-                            else if ((grades[3] != 0) && (grades[2] != 0) && (grades[4] != 0)){
+                } else if ((grades[3] != 0) && (grades[2] != 0) && (grades[4] != 0)) {
 
-                                double a = Calculation.DisplacementV(grades[3], grades[2], grades[4]);
-                                double b = Calculation.AccelerationVf(grades[3], grades[2], grades[4]);
-                                unknown.setText(String.format("%.2f", a) +" m," + String.format("%.2f", b) + " m/s^2");
+                    double a = Calculation.DisplacementV(grades[3], grades[2], grades[4]);
+                    double b = Calculation.AccelerationVf(grades[3], grades[2], grades[4]);
+                    unknown.setText(String.format("%.2f", a) + " m," + String.format("%.2f", b) + " m/s^2");
 
-                            }
-                            else if ((grades[1] != 0) && (grades[0] != 0) && (grades[4] != 0)){
+                } else if ((grades[1] != 0) && (grades[0] != 0) && (grades[4] != 0)) {
 
-                                double a = Calculation.InitialVelocityT(grades[1], grades[0], grades[4]);
-                                unknown.setText(String.format("%.2f", a) + "m/s");
+                    double a = Calculation.InitialVelocityT(grades[1], grades[0], grades[4]);
+                    unknown.setText(String.format("%.2f", a) + "m/s");
 
-                            }
-                            else if ((grades[2] != 0) && (grades[0] != 0) && (grades[1] != 0)){
+                } else if ((grades[2] != 0) && (grades[0] != 0) && (grades[1] != 0)) {
 
-                                double a = Calculation.InitialVelocityD(grades[2], grades[0], grades[1]);
-                                unknown.setText(String.format("%.2f", a)+"m/s");
+                    double a = Calculation.InitialVelocityD(grades[2], grades[0], grades[1]);
+                    unknown.setText(String.format("%.2f", a) + "m/s");
 
-                            }
-                            else if ((grades[3] != 0) && (grades[1] != 0) && (grades[0] != 0)){
+                } else if ((grades[3] != 0) && (grades[1] != 0) && (grades[0] != 0)) {
 
-                                double a = Calculation.TimeD(grades[3], grades[1], grades[0]);
-                                unknown.setText(String.format("%.2f", a) + "s");
+                    double a = Calculation.TimeD(grades[3], grades[1], grades[0]);
+                    unknown.setText(String.format("%.2f", a) + "s");
 
-                            }
-                            else if ((grades[2] != 0) && (grades[3] != 0) && (grades[0] != 0)){
+                } else if ((grades[2] != 0) && (grades[3] != 0) && (grades[0] != 0)) {
 
-                                double a = Calculation.TimeA(grades[2], grades[3], grades[0]);
-                                unknown.setText(String.format("%.2f", a) + "s");
-                            }
-                            else if ((grades[3] != 0) && (grades[1] != 0) && (grades[4] != 0)){
+                    double a = Calculation.TimeA(grades[2], grades[3], grades[0]);
+                    unknown.setText(String.format("%.2f", a) + "s");
+                } else if ((grades[3] != 0) && (grades[1] != 0) && (grades[4] != 0)) {
 
-                                double a = Calculation.AccelerationT(grades[3], grades[2], grades[0]);
-                                unknown.setText(String.format("%.2f", a)+"m/s^2");
-                            }
+                    double a = Calculation.AccelerationT(grades[3], grades[2], grades[0]);
+                    unknown.setText(String.format("%.2f", a) + "m/s^2");
+                } else {
+                    unknown.setText("Not enough variables");
 
-                            else{
-                                unknown.setText("Not enough variables");
+                }
 
-                            }
-
-                            }
-                        });
+            }
+        });
 
         /* Intent i = new Intent(MainActivity.this, graph.class);
         i.putExtra("acc", grades[0]);
         startActivity(i); */
 
-        graphbutton.setOnClickListener(new View.OnClickListener(){
+        graphbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(MainActivity.this, graph.class);
-                for(int i = 0; i > grades.length; i++){
-                    String key = "grades" + i;
-                    intentLoadNewActivity.putExtra(key, grades[i]);
+                for (int i = 0; i < 6; i++) {
+                    if (et1[i].getText().toString().isEmpty()) {
+                        grades[i] = 0;
+
+                    } // for loop go over all the text to check if it is empty, if it is empty it is 0
+                    else {
+                        grades[i] = Integer.parseInt(et1[i].getText().toString()); // or else it is the grade
+
+                    }
                 }
-                startActivity(intentLoadNewActivity);
+
+
+                Intent i = new Intent (MainActivity.this, graph.class);
+                i.putExtra("acc", grades[0]);
+                i.putExtra("initialvelocity", grades[3]);
+
+                startActivity(i);
             }
         });
+
+
+
+
+
+
 
     }
 
@@ -155,5 +164,4 @@ public class MainActivity extends AppCompatActivity {
         }  // ;
 
    // }
-
 
