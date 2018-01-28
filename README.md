@@ -1,4 +1,4 @@
-# Concordia University Hackathon 2017
+# ConUHacks 2018
 
 # Inspiration
 The impact of the STEM fields in today's world is ever-growing. However, we recognize that there exists a stigma towards studying in them as they are too "difficult" or math heavy. We believe that by automating common rote calculations, students will be able to focus more on the important, physical concepts
