@@ -18,50 +18,31 @@ public class graph extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
-      /*  Intent i = getIntent();
 
-        String acc = i.getStringExtra("acc");
-        System.out.println("HIIIIIIIIIIIIIIII");
-        System.out.println(acc); */
-      int[] grades = new int[6];
-      for(int i = 0; i < grades.length; i++) {
-          grades[i] = getIntent().getIntExtra("grades" + i, 0);
+        Intent intent2 = getIntent();
+        if (true) {
+            int acc = intent2.getIntExtra("acc",0);
+            int vi = intent2.getIntExtra("initialvelocity", 0);
+            //The key argument here must match that used in the other activity
 
-      }
 
-      System.out.println(grades[1]);
+            double d, t;
+            t = 0;
 
+            GraphView graph = (GraphView) findViewById(R.id.graph);
+            series = new LineGraphSeries<DataPoint>();
+            for (int i = 0; i < 500; i++) {
+                t = t + 0.1;
+                d = vi*t + (0.5 * acc * t * t);
+
+                series.appendData(new DataPoint(t, d), true, 500);
+            }
+            graph.addSeries(series);
+            graph.getLegendRenderer().setVisible(true);
+            series.setTitle("Graph f(x) against Time");
+            graph.getLegendRenderer().setTextSize(50);
+            graph.getLegendRenderer().setTextColor(Color.BLACK);
+            graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+        }
     }
 }
-
-
-    /*}
-
-        double d,x;
-        x = 0;
-
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        series = new LineGraphSeries<DataPoint>();
-        for (int i = 0; i < 500; i++ ) {
-            x = x + 0.1;
-            double vi = 100;
-            double a = 200;
-            d = (vi * x) + 0.5 * (a * x*x);
-            series.appendData(new DataPoint(x,d), true, 500);
-        }
-        graph.addSeries(series);
-        graph.getLegendRenderer().setVisible(true);
-        series.setTitle("Graph f(x)");
-        graph.getLegendRenderer().setTextSize(50);
-        graph.getLegendRenderer().setTextColor(Color.BLACK);
-        graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
-
-
-
-
-    }
-
-
-
-
-}*/
