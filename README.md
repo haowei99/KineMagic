@@ -13,7 +13,7 @@ We used Android Studio to build the app. The XML files is used for interface des
 
 
 # Challenges we ran into
-
+We were all learning new technology, so getting started and familar with it was very challenging initially. We hit multiple roadblocks trying to link the back-end to the front-end due to our inexperience with Android Studio. Our biggest challenge was setting up GraphView, we thought it would be easy to pass variables around between classes but we found out the hard way that it was not as simple and struggled.
 
 
 # Accomplishments that we're proud of
