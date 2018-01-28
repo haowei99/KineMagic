@@ -21,8 +21,8 @@ public class graph extends AppCompatActivity {
 
         Intent intent2 = getIntent();
         if (true) {
-            int acc = intent2.getIntExtra("acc",0);
-            int vi = intent2.getIntExtra("initialvelocity", 0);
+            double acc = intent2.getDoubleExtra("acc",0);
+            double vi = intent2.getDoubleExtra("initialvelocity", 0);
             //The key argument here must match that used in the other activity
 
 
