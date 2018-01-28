@@ -29,6 +29,6 @@ We learned that anything is possible if your team is willing to do what it takes
 
 In the near future, we wish to improve our graphing feature so users have a better visualization of the problem. We intend to add a feature which goes through solving equations step by step so users can have a better understand of the problem solving process. Lastly, we want to improve KineMagic by having it do 2D kinematics problems for users.
 
-Run the application
+# Running the application
 
-Simply download/clone the source code from GitHub link provided and run on Android studio. It is required to use a physical Android device as it requires use of the camera - not possible on emulator.
+Simply download/clone the source code from GitHub link provided and run on Android studio. 
