@@ -7,6 +7,8 @@ KineMagic is an Android application that lets one plug in variables for the give
 
 # How we built it
 
+We used Android Studio to build the app. The XML files is used for interface design and the Java files are used to calculate the unknown variable. We used XML to allow users to interact with the calculator and input variables. There were no APIs used in this porject and we strated everything from scratch. Linking the XML files to Java consist of calling the input files back and forward. The calculation part of Java reads through the given input and run through the algorithm to determine whether or not there is an answer. If there is , it returns the answer with the correct units to the screen. 
+
 
 # Challenges we ran into
 
